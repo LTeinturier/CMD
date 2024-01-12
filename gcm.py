@@ -17,7 +17,7 @@ class Gcm_cmd(Cmd):
               '900':'midnightblue'
             }
     
-    def __init__(self, datapath, gcm) -> None:
+    def __init__(self, gcm,datapath='data/') -> None:
         super().__init__(datapath)
         if not isinstance(gcm,list):
             self.gcm = [gcm]
@@ -266,12 +266,13 @@ class Gcm_cmd(Cmd):
         plt.show()
         
 if __name__=="__main__":
-    datapath = '/home/lteinturier/Documents/PhD/BD/CMD/benjamin sutff/brown-dwarf-diagram'
+    # datapath = '/home/lteinturier/Documents/PhD/BD/CMD/benjamin sutff/brown-dwarf-diagram'
     import glob
-    gcmfile = sorted(glob.glob("../../from_mesopsl/solar/Teq*/10um/highres/XspecIR.nc"))+sorted(glob.glob("../../from_mesopsl/solar/Teq*/20um/highres/XspecIR.nc"))+sorted(glob.glob("../../from_mesopsl/solar/Teq*/15um/highres/XspecIR.nc"))
+    gcmfile = sorted(glob.glob("../from_mesopsl/solar/Teq*/10um/highres/XspecIR.nc"))+sorted(glob.glob("../from_mesopsl/solar/Teq*/20um/highres/XspecIR.nc"))+sorted(glob.glob("../from_mesopsl/solar/Teq*/15um/highres/XspecIR.nc"))
     
     # print(gcmfile)
-    obj = Gcm_cmd(datapath=datapath,
+    obj = Gcm_cmd(
+        # datapath=datapath,
                   gcm=gcmfile)
     # obj.plot('jh')
     obj.plot()
