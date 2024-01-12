@@ -183,9 +183,9 @@ class Gcm_cmd(Cmd):
                     markersize=12
                 )
         ##legend
-        markerlegend = [Line2D([0],[0],color='k',markerfacecolor='w',marker='s',label='20 $\\mathrm{\\mu}$m'),
-                    Line2D([0],[0],color='k',markerfacecolor='w',marker='v',label='15 $\\mathrm{\\mu}$m'),
-                    Line2D([0],[0],color='k',markerfacecolor='w',marker='D',label='10 $\\mathrm{\\mu}$m'),
+        markerlegend = [Line2D([0],[0],color='k',markerfacecolor='w',marker='s',linestyle='None',label='20 $\\mathrm{\\mu}$m'),
+                    Line2D([0],[0],color='k',markerfacecolor='w',marker='v',linestyle='None',label='15 $\\mathrm{\\mu}$m'),
+                    Line2D([0],[0],color='k',markerfacecolor='w',marker='D',linestyle='None',label='10 $\\mathrm{\\mu}$m'),
                     ]
         templegend = [Line2D([0],[0],color=self.colors[key],label=key+' K') for key in self.colors.keys()]
         bigleg = markerlegend+templegend
@@ -250,9 +250,9 @@ class Gcm_cmd(Cmd):
                 )
             
         ##legend
-        markerlegend = [Line2D([0],[0],color='k',markerfacecolor='w',marker='s',label='20 $\\mathrm{\\mu}$m'),
-                    Line2D([0],[0],color='k',markerfacecolor='w',marker='v',label='15 $\\mathrm{\\mu}$m'),
-                    Line2D([0],[0],color='k',markerfacecolor='w',marker='D',label='10 $\\mathrm{\\mu}$m'),
+        markerlegend = [Line2D([0],[0],color='k',markerfacecolor='w',marker='s',linestyle='None',label='20 $\\mathrm{\\mu}$m'),
+                    Line2D([0],[0],color='k',markerfacecolor='w',marker='v',linestyle='None',label='15 $\\mathrm{\\mu}$m'),
+                    Line2D([0],[0],color='k',markerfacecolor='w',marker='D',linestyle='None',label='10 $\\mathrm{\\mu}$m'),
                     ]
         templegend = [Line2D([0],[0],color=self.colors[key],label=key+' K') for key in self.colors.keys()]
         bigleg = markerlegend+templegend
@@ -317,9 +317,9 @@ class Gcm_cmd(Cmd):
                 )
             
         ##legend
-        markerlegend = [Line2D([0],[0],color='k',markerfacecolor='w',marker='s',label='20 $\\mathrm{\\mu}$m'),
-                    Line2D([0],[0],color='k',markerfacecolor='w',marker='v',label='15 $\\mathrm{\\mu}$m'),
-                    Line2D([0],[0],color='k',markerfacecolor='w',marker='D',label='10 $\\mathrm{\\mu}$m'),
+        markerlegend = [Line2D([0],[0],color='k',markerfacecolor='w',marker='s',linestyle='None',label='20 $\\mathrm{\\mu}$m'),
+                    Line2D([0],[0],color='k',markerfacecolor='w',marker='v',linestyle='None',label='15 $\\mathrm{\\mu}$m'),
+                    Line2D([0],[0],color='k',markerfacecolor='w',marker='D',linestyle='None',label='10 $\\mathrm{\\mu}$m'),
                     ]
         templegend = [Line2D([0],[0],color=self.colors[key],label=key+' K') for key in self.colors.keys()]
         bigleg = markerlegend+templegend
