@@ -107,6 +107,14 @@ class Cmd():
                 }
     
     def _cmd_jk(self):
+        """plots a J-K CMD
+        with a BB and data from Dupuy 2012
+        Raises:
+            PermissionError: private method, should not be called from outside.
+
+        Returns:
+            matplotlib.figure: the CMD plot
+        """
         if not hasattr(self.magJ_planck,'__len__') or not hasattr(self.MD,'__len__'):
             raise PermissionError("You're calling a private method here.\n You need to call method: CMD('jk')")
         fig,ax = plt.subplots(1)
@@ -144,7 +152,7 @@ class Cmd():
 
     def _cmd_jh(self):
         """plots a J-H CMD
-        with a BB and data from Dupui 2012
+        with a BB and data from Dupuy 2012
         Raises:
             PermissionError: private method, should not be called from outside
 
@@ -188,7 +196,7 @@ class Cmd():
     
     def _cmd_hk(self):
         """plots a H-K CMD
-        with a BB and data from Dupui 2012
+        with a BB and data from Dupuy 2012
         Raises:
             PermissionError: private method, should not be called from outside
 
