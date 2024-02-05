@@ -107,7 +107,7 @@ class Gcm_cmd(Cmd):
         """Process all the GCM simulation 
         and computes their J, H, K absolute mag
         """
-        markers = {'20':'s','15':'v','10':'D'}
+        markers = {'20':'s','15':'v','10':'D','6':'o','3':'^'}
         nsimu = len(self.gcm) #numbers of simulations given in input
         if nsimu==0:
             raise ValueError("You've given me an empty list of simulations !")
@@ -183,14 +183,17 @@ class Gcm_cmd(Cmd):
                     markersize=12
                 )
         ##legend
-        markerlegend = [Line2D([0],[0],color='k',markerfacecolor='w',marker='s',linestyle='None',label='20 $\\mathrm{\\mu}$m'),
+        markerlegend = [
+                    Line2D([0],[0],color='k',markerfacecolor='w',marker='s',linestyle='None',label='20 $\\mathrm{\\mu}$m'),
                     Line2D([0],[0],color='k',markerfacecolor='w',marker='v',linestyle='None',label='15 $\\mathrm{\\mu}$m'),
                     Line2D([0],[0],color='k',markerfacecolor='w',marker='D',linestyle='None',label='10 $\\mathrm{\\mu}$m'),
+                    Line2D([0],[0],color='k',markerfacecolor='w',marker='o',linestyle='None',label='6 $\\mathrm{\\mu}$m'),
+                    Line2D([0],[0],color='k',markerfacecolor='w',marker='^',linestyle='None',label='3 $\\mathrm{\\mu}$m'),
                     ]
         templegend = [Line2D([0],[0],color=self.colors[key],label=key+' K') for key in self.colors.keys()]
         bigleg = markerlegend+templegend
         h,_ = ax.get_legend_handles_labels()
-        ax.legend(handles=bigleg+h,ncol=len(bigleg+h)//3,loc='lower left',bbox_to_anchor=(0.5,0.9))
+        ax.legend(handles=bigleg+h,ncol=len(bigleg+h)//3,loc='lower center',bbox_to_anchor=(0.5,0.9))
         
         ## ax params
         ax.invert_yaxis()
@@ -257,7 +260,7 @@ class Gcm_cmd(Cmd):
         templegend = [Line2D([0],[0],color=self.colors[key],label=key+' K') for key in self.colors.keys()]
         bigleg = markerlegend+templegend
         h,_ = ax.get_legend_handles_labels()
-        ax.legend(handles=bigleg+h,ncol=len(bigleg+h)//3,loc='lower left',bbox_to_anchor=(0.5,0.9))
+        ax.legend(handles=bigleg+h,ncol=len(bigleg+h)//3,loc='lower center',bbox_to_anchor=(0.5,0.9))
         
         ## ax params
         ax.invert_yaxis()
@@ -324,7 +327,7 @@ class Gcm_cmd(Cmd):
         templegend = [Line2D([0],[0],color=self.colors[key],label=key+' K') for key in self.colors.keys()]
         bigleg = markerlegend+templegend
         h,_ = ax.get_legend_handles_labels()
-        ax.legend(handles=bigleg+h,ncol=len(bigleg+h)//3,loc='lower left',bbox_to_anchor=(0.5,0.9))
+        ax.legend(handles=bigleg+h,ncol=len(bigleg+h)//3,loc='lower center',bbox_to_anchor=(0.5,0.9))
         
         ## ax params
         ax.invert_yaxis()
@@ -356,8 +359,9 @@ class Gcm_cmd(Cmd):
         
 if __name__=="__main__":
     import glob
-    gcmfile = sorted(glob.glob("../from_mesopsl/solar/Teq*/10um/highres/XspecIR.nc"))+sorted(glob.glob("../from_mesopsl/solar/Teq*/20um/highres/XspecIR.nc"))+sorted(glob.glob("../from_mesopsl/solar/Teq*/15um/highres/XspecIR.nc"))
-    
+    gcmfile = sorted(glob.glob("../from_mesopsl/solar/Teq*/10um/highres/XspecIR.nc"))+sorted(glob.glob("../from_mesopsl/solar/Teq*/20um/highres/XspecIR.nc"))+sorted(glob.glob("../from_mesopsl/solar/Teq*/6um/highres/XspecIR.nc"))#+sorted(glob.glob("../from_mesopsl/solar/Teq*/15um/highres/XspecIR.nc"))
+    gcmfile+=sorted(glob.glob("../from_mesopsl/solar/Teq*/3um/highres/XspecIR.nc"))
+    # gcmfile = sorted(glob.glob("../from_mesopsl/solar/Teq*/6um/highres/XspecIR.nc"))+sorted(glob.glob("../from_mesopsl/solar/Teq*/10um/highres/XspecIR.nc"))+sorted(glob.glob("../from_mesopsl/solar/Teq*/20um/highres/XspecIR.nc"))
     obj = Gcm_cmd(gcm=gcmfile)
-    obj.plot('all')
+    obj.plot('jk')
     
